@@ -1,0 +1,31 @@
+.weather {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.weather-container-1 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.weather-text-high,
+.weather-text-low {
+  font-size: 1em;
+  font-weight: 300;
+  color: #333;
+}
+
+.weather-text {
+  font-size: 1em;
+  font-weight: 300;
+  color: #333;
+}
+
+/* p strong {
+  margin-top: 1rem;
+} */

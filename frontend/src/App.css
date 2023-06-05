@@ -1,0 +1,33 @@
+.container {
+  max-width: 120rem;
+  max-height: auto;
+  margin: 10rem auto;
+  /* text-align: center; */
+
+  /* border: 1px solid #ccc; */
+  padding: 2rem 4rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 2.4rem;
+  /* row-gap: 9.6rem; */
+}
+
+/* .grid:not(:last-child) {
+  margin-bottom: 1.6rem;
+} */
+
+.grid--7--cols {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.heading-primary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-size: 4.2rem;
+  line-height: 1.05;
+  margin-bottom: 5.2rem;
+  text-align: center;
+}
