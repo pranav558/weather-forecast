@@ -1,10 +1,29 @@
 import React from "react";
+import { useState } from 'react';
 
 import Card from "../src/components/Card/Card";
 
 import "./App.css";
 
 const App = () => {
+  const [ lat, setLat ] = useState(null);
+  const [ long, setLong ] = useState(null);
+  const geolocationAPI = navigator.geolocation;
+  const getUserCoordinates = () => {
+    if (!geolocationAPI) {
+      // setError('Geolocation API is not available in your browser!')
+    } else {
+      geolocationAPI.getCurrentPosition((position) => {
+        const { coords } = position;
+        setLat(coords.latitude);
+        setLong(coords.longitude);
+      }, (error) => {
+        // setError('Something went wrong getting your position!')
+      })
+    }
+  };
+  getUserCoordinates();
+
   const dummyWeatherData = [
     {
       day: "Monday",
@@ -75,6 +94,9 @@ const App = () => {
   return (
     <div className="container">
       <h1 className="heading-primary">Weather App</h1>
+      <div className="App">
+        <p>Your coordinates are: {lat} {long}</p>
+      </div>
       <div className="grid grid--7--cols">
         {dummyWeatherData.map((data) => {
           return <Card weatherData={data} />;
