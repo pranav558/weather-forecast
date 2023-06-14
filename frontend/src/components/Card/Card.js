@@ -1,11 +1,17 @@
 import React from "react";
 
-import Date from "../Date/Date";
+import WeatherDate from "../WeatherDate/weatherDate";
 import Weather from "../Weather/Weather";
 
 import "./Card.css";
 
 const Card = (props) => {
+  const date = new Date(props.weatherData.date);
+  // const options = { weekday: "long" };
+  const dayString = date.toLocaleDateString(undefined, { weekday: "long" });
+  // const options = { month: "long" };
+  const monthString = date.toLocaleDateString(undefined, { month: "long" });
+
   return (
     <div
       className="card"
@@ -13,15 +19,11 @@ const Card = (props) => {
         background: `linear-gradient(to top left, ${props.weatherData.color}, rgba(255, 255, 255, 0.8))`,
       }}
     >
-      <Date
-        day={props.weatherData.day}
-        month={props.weatherData.month}
-        date={props.weatherData.date}
-      />
+      <WeatherDate day={dayString} month={monthString} date={date.getDate()} />
       <Weather
-        high={props.weatherData.temp_max}
-        low={props.weatherData.temp_min}
-        conditions={props.weatherData.conditions}
+        high={props.weatherData.max_temp_c}
+        low={props.weatherData.min_temp_c}
+        conditions={props.weatherData.condition}
       />
     </div>
   );
